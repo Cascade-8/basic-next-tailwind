@@ -1,6 +1,8 @@
-import '@components/ @styles/ @types/ @helpers/styles/globals.css'
+import '@styles/globals.css'
 import type { AppProps } from 'next/app'
-
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+import withData from '@hocs/withData'
+const App = ({ Component, pageProps }: AppProps) => {
+  const DataComponent = withData(Component)
+  return <DataComponent {...pageProps} />
 }
+export default App
